@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-#define CHECK_SET(X, Y) (X == Y) ? 0 : 1
+#include "libft.h"
 
 static int		ft_word_count(char *str, char charset)
 {
@@ -23,14 +21,14 @@ static int		ft_word_count(char *str, char charset)
 	count = 0;
 	while (str[i])
 	{
-		while (!CHECK_SET(str[i], charset) && str[i])
+		while (!(str[i] != charset) && str[i])
 			i++;
-		if (CHECK_SET(str[i], charset))
+		if ((str[i] != charset))
 			count++;
-		while (CHECK_SET(str[i], charset) && str[i])
+		while ((str[i] != charset) && str[i])
 			i++;
 	}
-	if (!CHECK_SET(str[i - 1], charset))
+	if (!(str[i - 1] != charset))
 		count--;
 	return (count);
 }
@@ -42,9 +40,9 @@ static int		ft_word_len(char *str, char charset)
 
 	i = 0;
 	len = 0;
-	while (!CHECK_SET(str[i], charset) && str[i])
+	while (!(str[i] != charset) && str[i])
 		i++;
-	while (CHECK_SET(str[i], charset) && str[i])
+	while ((str[i] != charset) && str[i])
 	{
 		len++;
 		i++;
@@ -77,10 +75,10 @@ char			**ft_split(char const *str, char charset)
 	while (ft_word_count(strcp, charset) > 0)
 	{
 		j = 0;
-		while (!CHECK_SET(*strcp, charset) && *strcp)
+		while (!(*strcp != charset) && *strcp)
 			strcp++;
 		tab[i] = malloc(sizeof(char) * (ft_word_len(strcp, charset) + 1));
-		while (CHECK_SET(*strcp, charset) && *strcp)
+		while ((*strcp != charset) && *strcp)
 			tab[i][j++] = *strcp++;
 		tab[i][j] = '\0';
 		i++;
