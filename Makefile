@@ -6,7 +6,7 @@
 #    By: admadene <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/16 13:56:44 by admadene          #+#    #+#              #
-#    Updated: 2019/10/13 18:45:50 by admadene         ###   ########.fr        #
+#    Updated: 2021/01/12 16:28:11 by amadene          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCS		=	ft_atoi.c\
 			ft_tolower.c\
 			ft_toupper.c\
 		    get_next_line.c\
+			ft_strjoindoublefree.c\
 	
 
 OBJS		= ${SRCS:.c=.o }
