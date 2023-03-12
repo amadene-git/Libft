@@ -10,59 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static	int		ft_strlen(char const *str)
+static char *ft_itoa_rec(long int i, int *lvl, int sign)
 {
-	int i;
+    char *str;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+    (*lvl)++;
+    str = NULL;
+    if (i > 0)
+    {
+        str = ft_itoa_rec(i / 10, lvl, sign);
+        str[*lvl] = i % 10 + '0';
+        (*lvl)++;        
+        return (str);
+    }
+    else
+    {
+        str = malloc(*lvl + 1 + sign);
+        str[*lvl + sign] = '\0';
+        if (sign)
+        {
+            *lvl = 1;
+            str[0] = '-';
+        }
+        else
+            *lvl = 0;
+        return (str);
+    }
 }
 
-static	char	*ft_strrev(char *str)
+char    *ft_itoa(int n)
 {
-	char	rev[ft_strlen(str)];
-	int		i;
-	int		j;
+    long int i;
+    int lvl;
 
-	i = -1;
-	j = 0;
-	while (str[++i])
-		rev[i] = str[i];
-	i--;
-	while (i + 1)
-		str[j++] = rev[i--];
-	return (str);
+    if (n == 0)
+        return (ft_strdup("0"));
+    lvl = -1;
+    i = (long int)n;
+    return (ft_itoa_rec((n < 0) ? -i : i, &lvl, (n < 0)));
 }
 
-char			*ft_itoa(int n)
-{
-	char	*str;
-	int		i;
-	int		signe;
-
-	i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * 12)))
-		return (NULL);
-	if (n == -2147483648)
-		return ("-2147483648");
-	if (n == 0)
-		return ("0");
-	if ((signe = 1) && n < 0)
-	{
-		signe = 0;
-		n *= -1;
-	}
-	while (n)
-	{
-		str[i++] = (n % 10) + '0';
-		n /= 10;
-	}
-	if (!signe)
-		str[i++] = '-';
-	str[i] = '\0';
-	return (ft_strrev(str));
-}

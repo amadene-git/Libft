@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: admadene <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 18:51:02 by admadene          #+#    #+#             */
-/*   Updated: 2019/10/11 18:02:50 by admadene         ###   ########.fr       */
+/*   Created: 2019/10/09 15:43:50 by admadene          #+#    #+#             */
+/*   Updated: 2019/10/12 17:02:47 by admadene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_isspace(int c)
 {
-	unsigned	const	char	*s;
-	unsigned	char			*d;
-
-	s = (unsigned const char*)src;
-	d = (unsigned char*)dest;
-	if (!dest && !src)
-		return (NULL);
-	while (n && n--)
-		*d++ = *(unsigned char*)s++;
-	return (dest);
+	return (c == 32 || !(c < '\t' || c > '\r'));
 }

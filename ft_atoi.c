@@ -10,19 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isspace(int c)
-{
-	return (c == 32 || !(c < '\t' || c > '\r'));
-}
+#include "libft.h"
 
-static int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
-	return (0);
-}
-
-int			ft_atoi(const char *str)
+int ft_atoi(const char *str)
 {
 	int i;
 	int res;

@@ -10,17 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-static	int	ft_strlen(char const *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 size_t		ft_strlcpy(char *dest, const char *src, size_t size)
 {

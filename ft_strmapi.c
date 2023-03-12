@@ -10,32 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-static	int		ft_strlen(char const *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-static	char	*ft_strdup(char const *s)
-{
-	char	*str;
-	char	*strcpy;
-
-	str = (char*)malloc(sizeof(char) * (ft_strlen((char*)s) + 1));
-	if (str == NULL)
-		return (NULL);
-	strcpy = str;
-	while (*s)
-		*strcpy++ = *s++;
-	*strcpy = '\0';
-	return (str);
-}
+#include "libft.h"
 
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

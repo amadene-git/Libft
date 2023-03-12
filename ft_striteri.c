@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: admadene <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 18:51:02 by admadene          #+#    #+#             */
-/*   Updated: 2019/10/11 18:02:50 by admadene         ###   ########.fr       */
+/*   Created: 2019/10/07 13:50:45 by admadene          #+#    #+#             */
+/*   Updated: 2019/10/16 17:18:22 by admadene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned	const	char	*s;
-	unsigned	char			*d;
+	int		i;
 
-	s = (unsigned const char*)src;
-	d = (unsigned char*)dest;
-	if (!dest && !src)
-		return (NULL);
-	while (n && n--)
-		*d++ = *(unsigned char*)s++;
-	return (dest);
+	if (!s || !f)
+        return;
+	i = -1;
+	while (s[++i])
+		(*f)(i, s + i);
 }

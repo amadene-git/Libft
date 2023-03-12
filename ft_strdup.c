@@ -10,26 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static	int	ft_strlen(char const *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char		*ft_strdup(char const *s)
+char    *ft_strdup(char const *s)
 {
 	char	*str;
 	char	*strcpy;
 
-	str = (char*)malloc(sizeof(char) * (ft_strlen((char*)s) + 1));
-	if (str == NULL)
-		return (NULL);
+	if (!(str = (char*)malloc(sizeof(char) * (ft_strlen((char*)s) + 1))))
+        return (NULL);
 	strcpy = str;
 	while (*s)
 		*strcpy++ = *s++;

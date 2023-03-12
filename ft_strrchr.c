@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -19,11 +19,11 @@ char	*ft_strrchr(const char *s, int c)
 	str = NULL;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			str = (char*)s;
 		s++;
 	}
-	if (!*s && !c)
+	if (!*s && !(char)c)
 		return ((char*)s);
 	return (str);
 }
