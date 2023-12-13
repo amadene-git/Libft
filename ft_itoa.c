@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char *ft_itoa_rec(long int i, int *lvl, int sign)
+char *ft_itoa_rec(long int i, int *lvl, int sign)
 {
     char *str;
 
