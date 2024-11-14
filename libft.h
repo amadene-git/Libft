@@ -24,6 +24,7 @@
 # include <stdio.h>
 
 
+
 typedef	struct	s_list
 {
 	void			*content;
@@ -58,7 +59,6 @@ int				ft_strcmp(const char *s1, const char *s2);
 char			*ft_strdup(const char *s);
 char            *ft_strndup(const char *s, size_t n);
 char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strjoinfree(char *s1, char *s2);
 char			*ft_strjoindoublefree(char *s1, char *s2);
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
@@ -74,6 +74,8 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 
 int				get_next_line(int fd, char **line);
+char			**getFile(const char *filename);
+
 
 t_list			*ft_lstnew(void *data);
 int				ft_lstsize(t_list *lst);

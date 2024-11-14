@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strjoinfree(char *s1, char *s2)
+static char	*ft_strjoinfree(char *s1, char *s2)
 {
 	char	*str;
 	int		len;
@@ -38,7 +38,7 @@ char	*ft_strjoinfree(char *s1, char *s2)
 	return (str - len);
 }
 
-int		get_current_line(int fd, char **save)
+static int		get_current_line(int fd, char **save)
 {
 	char	buffer[BUFFER_SIZE + 1];
 	int		ret;
