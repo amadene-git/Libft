@@ -19,7 +19,7 @@ static char **recusiveParsing(int fd, int recursionLevel)
     return (tab);
 }
 
-char **getFile(const char *filename)
+char **ft_getFile(const char *filename)
 {
     int fd;
     if ((fd = open(filename, O_RDONLY)) < 0) {
