@@ -74,7 +74,7 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 
 int				get_next_line(int fd, char **line);
-char			**getFile(const char *filename);
+char			**ft_getFile(const char *filename);
 
 
 t_list			*ft_lstnew(void *data);
