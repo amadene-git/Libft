@@ -12,19 +12,6 @@
 
 #include "libft.h"
 
-static int  isInCharset(char c, const char *charset)
-{
-    if (charset == NULL)
-        return (0);
-    while (*charset)
-    {
-        if (*charset == c)
-            return (1);
-        ++charset;
-    }
-    return (0);
-}     
-
 static char    **recursiveSplit(char const *str, const char *charset, int lvl)
 {
     char **tab;
@@ -32,9 +19,9 @@ static char    **recursiveSplit(char const *str, const char *charset, int lvl)
 
     tab = NULL;
     i = 0;
-    while (str[i] && isInCharset(*str, charset))
+    while (str[i] && ft_isInCharset(*str, charset))
         str++;
-    while (str[i] && !isInCharset(str[i], charset))
+    while (str[i] && !ft_isInCharset(str[i], charset))
         i++;
     if (!*str)
     {
